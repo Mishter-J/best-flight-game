@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ringrunner — Skyforge Courier</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="tape-top">
+    <div class="tape" id="tape-speed"><span class="tape-label">SPD kt</span><span class="tape-value" id="hud-speed">0</span></div>
+    <div class="tape" id="tape-heading"><span class="tape-label">HDG</span><span class="tape-value" id="hud-heading">000</span></div>
+    <div class="tape" id="tape-alt"><span class="tape-label">ALT ft</span><span class="tape-value" id="hud-alt">0</span></div>
+  </div>
+  <div id="reticle"></div>
+  <div id="hud-left">
+    <div class="gauge"><span>FUEL</span><div class="bar"><div id="fuel-fill"></div></div></div>
+    <div class="gauge"><span>HULL</span><div class="bar"><div id="hull-fill"></div></div></div>
+    <div class="gauge"><span>THR</span><div class="bar"><div id="thr-fill"></div></div></div>
+  </div>
+  <div id="hud-right">
+    <div id="mission-title">MISSION</div>
+    <div id="mission-text">—</div>
+    <div id="score-line">SCORE 0 · 0:00</div>
+    <canvas id="minimap" width="150" height="150"></canvas>
+  </div>
+  <div id="banner" class="hidden"></div>
+  <div id="warn" class="hidden">STALL</div>
+</div>
+
+<div id="menu">
+  <h1>RINGRUNNER</h1>
+  <p class="sub">Skyforge Courier · Aurelia Isles</p>
+  <p class="brief">Fly the Kestrel-9 courier through the sky rings, mind your fuel,
+  and put her down gently on the strip. Three sorties, one island chain.</p>
+  <div class="controls">
+    <div><b>W / S</b> throttle up / down</div>
+    <div><b>Mouse</b> pitch &amp; roll (or arrow keys)</div>
+    <div><b>A / D</b> rudder</div>
+    <div><b>C</b> chase / cockpit camera</div>
+    <div><b>Space</b> wheel brake · <b>R</b> restart sortie</div>
+  </div>
+  <button id="start-btn">TAKE OFF</button>
+  <p class="hint">Click TAKE OFF, then hold W to spool up. Land under 180 ft/min sink to keep the hull whole.</p>
+</div>
+
+<div id="end" class="hidden">
+  <h1 id="end-title">SORTIE COMPLETE</h1>
+  <p id="end-text"></p>
+  <div id="end-stats"></div>
+  <button id="again-btn">FLY AGAIN</button>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
