@@ -1,0 +1,70 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0b1c2c; }
+body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #eaf6ff; }
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+.hidden { display: none !important; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; }
+#tape-top {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px;
+}
+.tape {
+  background: rgba(4, 24, 38, 0.72); border: 1px solid rgba(125, 220, 255, 0.55);
+  border-radius: 8px; padding: 6px 14px; text-align: center; min-width: 108px;
+  box-shadow: 0 0 14px rgba(64, 190, 255, 0.25) inset;
+}
+.tape-label { display: block; font-size: 10px; letter-spacing: 2px; color: #8fd8ff; }
+.tape-value { display: block; font-size: 26px; font-weight: 700; color: #ffffff; font-variant-numeric: tabular-nums; }
+#reticle {
+  position: absolute; left: 50%; top: 50%; width: 44px; height: 44px;
+  transform: translate(-50%, -50%); border: 2px solid rgba(140, 230, 255, 0.8);
+  border-radius: 50%;
+}
+#reticle::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px;
+  background: #bff0ff; border-radius: 50%; transform: translate(-50%, -50%);
+}
+#hud-left { position: absolute; left: 16px; bottom: 16px; width: 190px; }
+.gauge { margin-bottom: 8px; font-size: 11px; letter-spacing: 2px; color: #aee6ff; }
+.gauge .bar { height: 10px; background: rgba(4, 24, 38, 0.75); border: 1px solid rgba(125, 220, 255, 0.5); border-radius: 5px; overflow: hidden; margin-top: 2px; }
+.gauge .bar > div { height: 100%; width: 100%; background: linear-gradient(90deg, #27c46b, #9be15d); transition: width 0.15s linear; }
+#hull-fill { background: linear-gradient(90deg, #ff9d3c, #ffd23c); }
+#thr-fill { background: linear-gradient(90deg, #2aa7ff, #7ddcff); }
+#hud-right { position: absolute; right: 16px; top: 16px; width: 210px; text-align: right; }
+#mission-title { font-size: 11px; letter-spacing: 3px; color: #ffd76a; }
+#mission-text { font-size: 15px; font-weight: 600; margin: 3px 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
+#score-line { font-size: 13px; color: #aee6ff; font-variant-numeric: tabular-nums; }
+#minimap { margin-top: 8px; border: 1px solid rgba(125, 220, 255, 0.5); border-radius: 8px; background: rgba(4, 24, 38, 0.6); }
+#banner {
+  position: absolute; left: 50%; top: 22%; transform: translateX(-50%);
+  font-size: 30px; font-weight: 800; letter-spacing: 3px; color: #ffe27a;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8); text-align: center;
+}
+#warn {
+  position: absolute; left: 50%; top: 62%; transform: translateX(-50%);
+  font-size: 22px; font-weight: 800; letter-spacing: 4px; color: #ff5a4e;
+  text-shadow: 0 0 12px rgba(255, 60, 40, 0.8);
+}
+
+#menu, #end {
+  position: fixed; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px; text-align: center;
+  background: linear-gradient(180deg, rgba(6, 26, 44, 0.55), rgba(6, 26, 44, 0.82));
+  padding: 24px;
+}
+#menu h1, #end h1 { font-size: 54px; letter-spacing: 8px; color: #ffffff; text-shadow: 0 4px 24px rgba(64,190,255,0.55); }
+.sub { letter-spacing: 4px; color: #ffd76a; font-size: 14px; }
+.brief { max-width: 560px; font-size: 16px; line-height: 1.5; color: #d9f2ff; }
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; font-size: 14px; color: #bfe9ff; text-align: left; }
+.controls b { color: #ffffff; }
+button {
+  pointer-events: auto; cursor: pointer; font-size: 19px; font-weight: 800; letter-spacing: 3px;
+  color: #06283f; background: linear-gradient(180deg, #ffe27a, #ffb63c);
+  border: none; border-radius: 10px; padding: 13px 42px;
+  box-shadow: 0 6px 22px rgba(255, 182, 60, 0.45);
+}
+button:hover { filter: brightness(1.08); }
+.hint { font-size: 13px; color: #9fd3f2; max-width: 520px; }
+#end-text { font-size: 17px; max-width: 540px; line-height: 1.5; }
+#end-stats { font-size: 16px; color: #ffe27a; font-variant-numeric: tabular-nums; }
